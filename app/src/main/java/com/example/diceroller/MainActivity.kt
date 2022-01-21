@@ -49,12 +49,26 @@ class MainActivity : AppCompatActivity() {
         //Update the content description
         diceImage.contentDescription = dadoRoll.toString()
 
-        /*2do Dado
+        //2do Dado
         val dado2 = Dado(6)
         val resultadoDato2 = dado2.roll()
-        val resultTextView2: TextView = findViewById(R.id.textView2)
-        resultTextView2.text = resultadoDato2.toString()
-        */
+        val diceImage2: ImageView = findViewById(R.id.imageView2)
+
+        val drawableResource2 = when( resultadoDato2 ){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+
+        //Update the ImageView with the correct drawable resource ID
+        diceImage2.setImageResource(drawableResource2)
+
+        //Update the content description
+        diceImage2.contentDescription = resultadoDato2.toString()
+
     }
 }
 
