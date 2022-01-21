@@ -3,6 +3,7 @@ package com.example.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -28,17 +29,32 @@ class MainActivity : AppCompatActivity() {
      */
 
     private fun rollDado() {
-        // Create new Dice object with 6 sides and roll it
+        // 1ro Dado
         val dado = Dado(6)
         val dadoRoll = dado.roll()
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = dadoRoll.toString()
+        val diceImage: ImageView = findViewById(R.id.imageView)
 
-        //2Do Dado
+        val drawableResource = when( dadoRoll ){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+
+        //Update the ImageView with the correct drawable resource ID
+        diceImage.setImageResource(drawableResource)
+
+        //Update the content description
+        diceImage.contentDescription = dadoRoll.toString()
+
+        /*2do Dado
         val dado2 = Dado(6)
         val resultadoDato2 = dado2.roll()
         val resultTextView2: TextView = findViewById(R.id.textView2)
         resultTextView2.text = resultadoDato2.toString()
+        */
     }
 }
 
