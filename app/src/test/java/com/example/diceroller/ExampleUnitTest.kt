@@ -11,7 +11,10 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun generates_number(){
+        val dado = Dado(6)
+        val rollResult = dado.roll()
+
+        assertTrue("El valor del lanzamiento no ha sido entre el 1 y el 6", rollResult in 1 .. 6 )
     }
 }
